@@ -1,0 +1,42 @@
+PASSWORD CHECKER
+1. base script
+//
+2. if passwd upper() or lower():
+        print(:upper or lower)
+3.  if numbers or letters:
+
+4. if year in password:
+        reduce strength of passwd
+
+5. STRETCH: how long it would take to crack
+
+WORD LIST COMPARE:
+
+1. grab a word list we would want to run against password
+
+2. make variable and set it to the open word list file and option to choose how many word list to sort through.
+
+3. for loop through and compare EVERY LINE to password// time is very important
+
+4. STRETCH: partial matches
+
+PASSWORD GENERATOR:
+
+1. try .randoms
+
+2. make list of all uppercase/lowercase letters, all numbers, and valid special characters
+
+3. random a number between 10-20 which will dictate length of new password
+
+4. grab a random spot in list[random] to put into new password var, use while loop and counter 
+
+5. run base script on random password generated
+
+6. make sure script grabs one of each digit/letter/special char
+
+7. STRETCH: run all scripts together partial matches/how long to crack
+
+
+SSH LOGIN INTEGRATION????????????
+
+1. research
