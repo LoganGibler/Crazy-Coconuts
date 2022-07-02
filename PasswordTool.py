@@ -1,9 +1,8 @@
 import random
 import sys
-# generate password based on 3 random letters, numbers, special character
-#    1. generate 3 numbers, add to password string | password = 123
-#    2. generate 3 letters, add to password string |  password = password + abc
-#    3. generate 1 special character, add to password string | password = password + !
+
+# MAKE MAN PAGE, LIKE LEGIT OPTIONS MAN ex: -gc -c -g
+#  STRETCH:  maybe script asks if u want the generated password checked
 
 numberlist = ["1","2","3","4","5","6","7","8","9"]
 specialcharslist = ["!","@","#","$","%","&"]
