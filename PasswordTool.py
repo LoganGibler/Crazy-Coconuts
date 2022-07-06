@@ -1,14 +1,13 @@
 import random
 import sys
-
+import string
 # MAKE MAN PAGE, LIKE LEGIT OPTIONS MAN ex: -gc -c -g
 #  STRETCH:  maybe script asks if u want the generated password checked
 #encode
 #passcrack
-numberlist = ["1","2","3","4","5","6","7","8","9"]
+numberlist = string.digits
 specialcharslist = ["!","@","#","$","%","&"]
-letterslist = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-
+letterslist = string.ascii_letters
 def generator():
     password = ""
     passwordlist = []
@@ -71,15 +70,15 @@ def main():
     # if option:
     #     print("Please give option")
 
-    if option == "generate":
+    if option == "--g":
         generator()
-    if option == "check":
+    if option == "--c":
         passwd = sys.argv[2]
         print("Checked Password:  ", passwd)
         passcheck(passwd)
-    if option == "generatecheck":
+    if option == "--gc":
         passcheck(generator())
-    if option == "compare":
+    if option == "--cp":
         compare()
 
     
