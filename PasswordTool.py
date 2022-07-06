@@ -42,13 +42,14 @@ def passcheck(password):
     if len(password) < 8:
         print("Ensure password is at least 8 characters long")
     else:
-        print("password is good length") #more specific, ie 8-11 characters weak, 12-14 moderate, 15+ strong
+        print("Password has sufficient length ") #more specific, ie 8-11 characters weak, 12-14 moderate, 15+ strong
 
     
     if any(char in special_characters for char in password):
-        print("has special characters")
+        print("Password has special characters")
     else:
-        print("doesn't have special characters")
+        print("Needs at least 1-2 special characters")
+
 def compare():
     # String to search for in file.  This is a user input string.
     string1 = input("Enter password to search for: ")
@@ -69,7 +70,6 @@ def main():
     option = sys.argv[1]
     # if option:
     #     print("Please give option")
-
     if option == "--g":
         generator()
     if option == "--c":
