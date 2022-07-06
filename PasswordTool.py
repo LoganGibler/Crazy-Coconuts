@@ -3,7 +3,8 @@ import sys
 
 # MAKE MAN PAGE, LIKE LEGIT OPTIONS MAN ex: -gc -c -g
 #  STRETCH:  maybe script asks if u want the generated password checked
-
+#encode
+#passcrack
 numberlist = ["1","2","3","4","5","6","7","8","9"]
 specialcharslist = ["!","@","#","$","%","&"]
 letterslist = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
@@ -49,6 +50,20 @@ def passcheck(password):
         print("has special characters")
     else:
         print("doesn't have special characters")
+def compare():
+    # String to search for in file.  This is a user input string.
+    string1 = input("Enter password to search for: ")
+    # opening a text file
+    file1 = open("LeakedPasswords.txt", "r")
+    # read file content
+    readfile = file1.read()
+    # checking condition for string found or not found and printing results.
+    if string1 in readfile:
+        print('You chose -->',string1 + ".", '\nThis password is compromised. Please choose again.')
+    else:
+        print('You chose -->', string1 , '\nThis password was not found')
+    # closing file
+    file1.close()
 
 def main():
     passwd = ""
@@ -64,5 +79,9 @@ def main():
         passcheck(passwd)
     if option == "generatecheck":
         passcheck(generator())
+    if option == "compare":
+        compare()
+
+    
         
 main()
