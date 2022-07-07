@@ -38,6 +38,20 @@ def generator():
 
 special_characters = """!@#$%^&*()-+?_=,<>/"""
 def passcheck(password):
+
+    uppercount = 0
+    lowercount = 0
+    for letter in password:
+        if letter in special_characters:
+            continue
+        if letter == letter.upper():
+            uppercount += 1
+        if letter == letter.lower():
+            lowercount += 1
+    if uppercount == 0:
+            print("Password needs an uppercase letter")
+    if lowercount == 0:
+            print("Password needs a lowercase letter")
     
     if len(password) < 8:
         print("Ensure password is at least 8 characters long")
@@ -49,6 +63,8 @@ def passcheck(password):
         print("Password has special characters")
     else:
         print("Needs at least 1-2 special characters")
+
+    
 
 def compare():
     # String to search for in file.  This is a user input string.
