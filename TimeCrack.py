@@ -2,9 +2,9 @@ from multiprocessing import pool
 import re
 import sys
 
-crack_speed = 20000000000  #default assumed rate 
-
+crack_speed = 20000000000 #default assumed rate 
 def timeCrack():
+    entropy = 0
     passwd = input("Password to time estimate:")
 
     passwd_len = len(passwd)
@@ -19,25 +19,29 @@ def timeCrack():
                  'Special characters': 33,
                  'Numbers': 10
                }
+            
     for char in passwd:
-        if re.match("""[+,-./:;<=>?@\\^_`{|}~]"[\[\] !\"#$%&'()*]""",char):
+        if re.match("[\[\] !\"#$%&'()*+,-./:;<=>?@\\^_`{|}~]", char):
             policies["Special characters"] += 1
-        if re.match("[a-z]",char):
+        elif re.match("[a-z]",char):
             policies["Lowercase characters"] += 1
-        if re.match("[A-Z]",char):
+        elif re.match("[A-Z]",char):
             policies["Uppercase characters"] += 1
-        if re.match("[0-9]",char):
+        elif re.match("[0-9]",char):
             policies["Numbers"] += 1
-    entropy = 0
-    print(policies,"policies")
     for policy in policies.keys():
     
         if policies[policy] > 0:
             entropy += entropies[policy]
     print(entropy,"entropy")
-    speed = ((entropy**passwd_len) / crack_speed) / 3600 # seconds in hour
-    print(speed,"(entropy**passwd_len) / crack_speed) / 3600")
-    time_ = "hours"
+    print(policies,"policies")
+    time_ = "minutes"
+    speed = ((entropy**passwd_len) / crack_speed) / 60 # seconds in hour
+    
+    if speed > 60:
+        speed = speed / 60
+        time_ = "hour"
+
     if speed > 24:
         speed = speed / 24
         time_ = "days"
@@ -53,6 +57,10 @@ def timeCrack():
     if time_ == "centuries" and speed > 1000:
         speed = speed / 1000
         time_ = "millennia"
+    if int(speed) < .01:
+        print("Time to crack password: {:,.9f} {}".format(speed, time_))
+    if int(speed) > .01:
+        print("Time to crack password: {:,.2f} {}".format(speed, time_))
 timeCrack()
 
     
