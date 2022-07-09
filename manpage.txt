@@ -1,0 +1,37 @@
+PTool                                                                             Commands Manual   
+
+                
+                                     NAME 
+                         Ptool - Multi-use Password Tool
+
+
+                                  DESCRIPTION
+          Welcome to Ptool! A password tool to fulfill your password needs!
+                   Created By: Tamara, Randy, Payton, Logan
+
+
+                                    OPTIONS
+                
+python3 ./Ptool.py [options]
+
+       --c              :   Checks inputed password, returns a letter grade and suggestions to
+                            improve password.
+
+       --g              :   Generates brand new password, length always 10-16 characters, 
+                            variety of lowercase letters, capital letters, numbers, and 
+                            special allowed special characters.
+
+       --gc             :   Performs same function as [--g] option, yet returns a letter
+                            grade and provides suggestions to improve generated password. 
+
+       --cp             :   Compares <inputedpassword> against a large list of compromised
+                            passwords, returns status if the <inputedpassword> is leaked.
+
+       --ch             :   Use this option if you need to crack a md5 hashed password, after typing 
+                            --ch, simply input the hashed password. By default, this option will use
+                            the rockyou.txt wordlist to crack your inputed hash.
+                            URGENT: If you wish to use this, you need to make a clean copy of rockyou.txt,
+                            as it has characters that cannot be encoded. Please paste this command-
+                            iconv -f utf-8 -t utf-8 -c /usr/share/wordlists/rockyou.txt > ~/rockyou_clean.txt.  
+
+       --tc             :   Gives a time estimate on how long it would take to crack the inputed password.
