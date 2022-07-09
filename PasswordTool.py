@@ -41,18 +41,29 @@ def generator():
     # passcheckgenerator(password)
 
 
+# this function may seem redundant, however the "passcheck()" function requires user input, 
+# while we want this passcheckgenerator function to run automatically after our generator() function runs
 
 def passcheckgenerator(password):
     uppercount = 0
     lowercount = 0
+    specialcharcount = 0
+    numbercount = 0
+    length_grade = 0
 
     for letter in password:
         if letter in special_characters:
             continue
         if letter == letter.upper():
-            uppercount += 1
+            uppercount = 1
         if letter == letter.lower():
-            lowercount += 1
+            lowercount = 1
+        if letter in numberlist:
+            numbercount = 1
+    if len(password) >= 8:
+        length_grade = 1
+    if len(password) >= 12:
+        length_grade += 1
     if uppercount == 0:
             print("Password needs an uppercase letter")
     if lowercount == 0:
@@ -65,9 +76,36 @@ def passcheckgenerator(password):
 
     
     if any(char in special_characters for char in password):
-        print("Password has special characters")
+        specialcharcount = 1
+        print("Password has special characters :)")
     else:
         print("Needs at least 1-2 special characters")
+
+    pass_grade = length_grade + specialcharcount + numbercount + uppercount + lowercount
+
+    if pass_grade == 6:
+        print("PTools Password Grade:  Excellent")
+    if pass_grade == 5:
+        print("PTools Password Grade:  Great")
+    if pass_grade == 4:
+        print("PTools Password Grade:  Good")
+    if pass_grade <= 3:
+        print("PTools Password Grade:  Bad")
+
+    option = input("Would you like to generate another password? y/n:")
+
+    if option == "y":
+        generator()
+        
+    elif option == "n":
+        print("Thank you for using PTool!!!")
+        
+    else:
+        option = input("Please type 'y' or 'n':")
+        if option == "y":
+            generator()
+        elif option == "n":
+            print("Thank you for using PTool!!!")
 
 special_characters = """!@#$%^&*()-+?_=,<>/"""
 
