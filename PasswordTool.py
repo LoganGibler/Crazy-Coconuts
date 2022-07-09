@@ -189,7 +189,7 @@ def hashCrack():
 def timeCrack():
     crack_speed = 20000000000 #default assumed rate 
     entropy = 0
-    passwd = input("Password to time estimate:")
+    passwd = input("Input Password:")
 
     passwd_len = len(passwd)
 
@@ -217,8 +217,7 @@ def timeCrack():
     
         if policies[policy] > 0:
             entropy += entropies[policy]
-    print(entropy,"entropy")
-    print(policies,"policies")
+   
     time_ = "minutes"
     speed = ((entropy**passwd_len) / crack_speed) / 60 # seconds in hour
     
