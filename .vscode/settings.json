@@ -2,11 +2,18 @@
     "cSpell.words": [
         "generatecheck",
         "letterslist",
+        "lowercount",
+        "numbercount",
         "numberlist",
         "passcheck",
+        "passcheckgenerator",
+        "passcrack",
         "passwordlist",
         "readfile",
+        "rockyou",
         "specialchar",
-        "specialcharslist"
+        "specialcharcount",
+        "specialcharslist",
+        "uppercount"
     ]
 }

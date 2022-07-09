@@ -1,9 +1,10 @@
-from multiprocessing import pool
+
 import re
 import sys
 
-crack_speed = 20000000000 #default assumed rate 
+
 def timeCrack():
+    crack_speed = 20000000000 #default assumed rate 
     entropy = 0
     passwd = input("Password to time estimate:")
 
