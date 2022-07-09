@@ -179,8 +179,8 @@ def hashCrack():
         word = word.strip()
         guess = md5(word.encode("utf-8"))
         if guess.hexdigest() == passHash:
-            print("Password " + word)
-            count += 1
+            print("Password is: " + word)
+            count = 1
             break
 
     if count == 0:

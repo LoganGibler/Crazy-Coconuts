@@ -1,18 +1,22 @@
 from hashlib import md5
 
-passHash = input("Enter password hash:")
 
-wordList = open("rockyou_clean.txt","r")
 
-def hashCrack(passHash):
+def hashCrack():
+    passHash = input("Enter password hash:")
+    wordList = open("LeakedPasswords.txt","r")
     count = 0
+
     for word in wordList:
         word = word.strip()
         guess = md5(word.encode("utf-8"))
+        print(guess.hexdigest())
         if guess.hexdigest() == passHash:
-            print("Password " + word)
-            count += 1
-        
+            print("Password is: " + word)
+            count = 1
+            break
+           
     if count == 0:
         print("Password not found")
-hashCrack(passHash)
+
+hashCrack()
