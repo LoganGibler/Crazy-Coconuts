@@ -39,9 +39,9 @@ def SSHCrack():
         passlist = input("Enter Password List: ")
         with open(passlist, "r") as infile:
             start = time.time()
-            for word in passlist:
+            for word in infile:
                 word = word.strip()
-                con = connect(host,user,passlist)
+                con = connect(host,user,word)
                 if con == 1:
                     break
                 else:

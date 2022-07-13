@@ -1,6 +1,8 @@
 {
     "cSpell.words": [
+        "exeeded",
         "generatecheck",
+        "infile",
         "letterslist",
         "lowercount",
         "numbercount",
@@ -15,6 +17,7 @@
         "specialchar",
         "specialcharcount",
         "specialcharslist",
+        "timedout",
         "uppercount"
     ]
 }
