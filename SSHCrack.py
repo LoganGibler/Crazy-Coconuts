@@ -51,3 +51,4 @@ def SSHCrack():
             print("Total runtime was: ", t_time, "second")    
 
     Main()
+SSHCrack()
