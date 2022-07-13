@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "colorama": "^0.0.0",
+    "paramiko": "^0.0.1"
+  }
+}

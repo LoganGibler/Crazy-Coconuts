@@ -8,6 +8,7 @@
         "passcheck",
         "passcheckgenerator",
         "passcrack",
+        "passlist",
         "passwordlist",
         "readfile",
         "rockyou",
