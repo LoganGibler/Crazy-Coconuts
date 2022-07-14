@@ -302,8 +302,10 @@ def timeCrack():
     if time_ == "centuries" and speed > 1000:
         speed = speed / 1000
         time_ = "millennia"
+
     if int(speed) < .01:
         print("Time to crack password: {:,.9f} {}".format(speed, time_))
+        
     if int(speed) > .01:
         print("Time to crack password: {:,.2f} {}".format(speed, time_))
 
