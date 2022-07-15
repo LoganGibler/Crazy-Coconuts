@@ -4,11 +4,11 @@ import sys
 import string
 import re
 from hashlib import md5, sha1, sha224, sha256, sha384, sha512
-#import paramiko 
+import paramiko 
 import time
 import socket
-#from colorama import init, Fore
-#(init)
+from colorama import init, Fore
+(init)
 
 # MAKE MAN PAGE, LIKE LEGIT OPTIONS MAN ex: -gc -c -g
 #  STRETCH:  maybe script asks if u want the generated password checked
@@ -168,7 +168,7 @@ def passcheck():
     
 def compare():
     string1 = input("Enter password to search for: ")
-    file1 = open("LeakedPasswords.txt", "r")
+    file1 = open("rockyou_clean.txt", "r")
     readfile = file1.read()
     if string1 in readfile:
         print('You chose -->',string1 + ".", '\nThis password is compromised. Please choose again.')
@@ -179,7 +179,7 @@ def compare():
 
 def hashCrack():
     passHash = input("Enter password hash:")
-    wordList = open("LeakedPasswords.txt","r")
+    wordList = open("rockyou_clean.txt","r")
     count = 0
 
     if len(passHash) == 128:
@@ -358,7 +358,7 @@ def SSHCrack():
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
         try:
-            client.connect(hostname=hostname, username=username, password=password, timeout=3)
+            client.connect(hostname=hostname, username=username, password=password, timeout=100)
         
         except socket.timeout:
             print(f"Host:{hostname} is unreachable, timedout.")
@@ -369,8 +369,8 @@ def SSHCrack():
             returning = False
     
         except paramiko.SSHException:
-            print(f"Quota exeeded, returning with delay...")
-            time.sleep(60)
+            print(f"Quota exeeded, continuing in : 100 seconds")
+            time.sleep(100)
             returning = connect(hostname,username,password)
     
         else:
@@ -378,7 +378,7 @@ def SSHCrack():
             return 1
 
     def Main():
-        host = input("Enter Hostname: ")
+        host = input("Enter Target IP: ")
         user = input("Enter Username: ")
         passlist = input("Enter Password List: ")
         with open(passlist, "r") as infile:
