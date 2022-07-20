@@ -4,11 +4,11 @@ import sys
 import string
 import re
 from hashlib import md5, sha1, sha224, sha256, sha384, sha512
-import paramiko 
+#import paramiko 
 import time
 import socket
-from colorama import init, Fore
-(init)
+#from colorama import init, Fore
+#(init)
 
 # MAKE MAN PAGE, LIKE LEGIT OPTIONS MAN ex: -gc -c -g
 #  STRETCH:  maybe script asks if u want the generated password checked
